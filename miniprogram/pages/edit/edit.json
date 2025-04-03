@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "lib-button": "../../lib/button",
+    "lib-rule": "../../lib/rule",
+    "lib-uploader": "../../lib/uploader"
+  }
+}

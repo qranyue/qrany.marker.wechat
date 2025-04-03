@@ -1,0 +1,18 @@
+/* lib/rule.wxss */
+.rule {
+  transition: height 0.5s;
+}
+
+.rule.hidden {
+  height: 0;
+}
+
+.tip {
+  transition: transform 0.5s, opacity 0.5s;
+  color: red;
+}
+
+.rule.hidden .tip {
+  transform: translateY(-100%);
+  opacity: 0;
+}

@@ -1,0 +1,25 @@
+<!--pages/edit/edit.wxml-->
+<form bindsubmit="onSubmit">
+  <view class="form">
+    <textarea model:value="{{ content }}" class="content" placeholder="请输入标题" auto-height></textarea>
+
+    <input model:value="{{ tag }}" class="tag" type="text" placeholder="请输入标签" />
+    <lib-rule value="{{ !!tag }}" tip="请输入标签"></lib-rule>
+
+    <view class="images">
+      <lib-uploader value="{{ images }}" bindinput="uploader"></lib-uploader>
+    </view>
+    <lib-rule value="{{ !!images.length }}" tip="请上传图片"></lib-rule>
+
+    <view class="share">
+      <switch model:checked="{{ share }}"></switch>
+      <text>公开</text>
+    </view>
+
+    <view class="flex-auto"></view>
+
+    <view class="footer">
+      <lib-button loading="{{ loading }}"></lib-button>
+    </view>
+  </view>
+</form>

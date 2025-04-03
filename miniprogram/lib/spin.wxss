@@ -1,0 +1,23 @@
+/* lib/spin.wxss */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin {
+  padding: calc(var(--spin-size, 20rpx) * 4 / 5);
+  border: calc(var(--spin-size, 20rpx) / 5) solid #e5e5e5;
+  border-left-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,27 @@
+/* lib/push.wxss */
+:host {
+  display: block;
+  border-radius: 9999rpx;
+  background-color: white;
+  width: min-content;
+}
+
+.button {
+  border-radius: 9999rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15);
+}
+
+.button:not([size="mini"]) {
+  width: min-content;
+  margin: 0;
+}
+
+.icon-add {
+  line-height: 1;
+  font-size: 50rpx;
+}

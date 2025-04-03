@@ -1,0 +1,17 @@
+{
+  "pages": ["pages/index/index", "pages/edit/edit", "pages/info/info"],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "景点标记",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents",
+  "requiredPrivateInfos": ["getLocation"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序展示"
+    }
+  }
+}

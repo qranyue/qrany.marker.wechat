@@ -1,0 +1,15 @@
+<!--lib/uploader.wxml-->
+<view class="uploader">
+  <view wx:for="{{ files }}" wx:key="key" class="preview">
+    <image class="image" src="{{ item.url || item.path }}" mode="aspectFill" lazy-load data-url="{{ item.url || item.path }}" bindtap="preview"></image>
+    <lib-spin wx:if="{{ item.loading }}" class="spin" size="{{ 40 }}"></lib-spin>
+    <view wx:if="{{ item.error }}" class="error">
+      <view class="iconfont icon-error"></view>
+    </view>
+    <view class="iconfont icon-close" data-url="{{ item.url || item.path }}" bindtap="remove"></view>
+  </view>
+
+  <view class="input" bindtap="choose">
+    <view class="iconfont icon-camera"></view>
+  </view>
+</view>

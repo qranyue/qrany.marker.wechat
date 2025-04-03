@@ -1,0 +1,5 @@
+<!--lib/push.wxml-->
+<button class="button" disabled="{{ loading }}">
+  <lib-spin wx:if="{{ loading }}" size="{{ 25 }}"></lib-spin>
+  <view wx:else class="iconfont icon-add"></view>
+</button>

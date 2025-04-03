@@ -1,0 +1,4 @@
+<!--lib/rule.wxml-->
+<view class="rule {{ visible }}">
+  <view class="tip">{{ tip }}</view>
+</view>

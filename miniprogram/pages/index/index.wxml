@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<map id="map" enable-rotate bindmarkertap="onMarkerTap"></map>
+
+<view id="center" />
+
+<view id="footer">
+  <lib-push loading="{{ add_loading }}" bind:tap="onTap" />
+</view>
