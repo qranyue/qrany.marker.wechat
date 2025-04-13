@@ -1,6 +1,7 @@
 /* lib/uploader.wxss */
 
 .uploader {
+  --size: var(--uploader-size, calc((100vw - 96rpx) / 3));
   display: flex;
   flex-wrap: wrap;
   gap: 16rpx;
@@ -8,8 +9,8 @@
 
 .preview,
 .input {
-  width: calc(100vw / 3 - 128rpx / 3);
-  height: calc(100vw / 3 - 128rpx / 3);
+  width: var(--size);
+  height: var(--size);
 }
 
 .preview {

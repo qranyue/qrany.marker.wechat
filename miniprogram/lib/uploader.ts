@@ -53,7 +53,7 @@ Component({
           this.setData({ [`files[${c}].loading`]: false, [`files[${c}].url`]: u });
         })
       );
-      const v = this.data.files.map((u) => u.url).filter((x) => !!x);
+      const v = this.data.files.map((u) => u.url);
       this.triggerEvent("input", v);
     },
 

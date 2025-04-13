@@ -1,8 +1,4 @@
 /* lib/rule.wxss */
-.rule {
-  transition: height 0.5s;
-}
-
 .rule.hidden {
   height: 0;
 }

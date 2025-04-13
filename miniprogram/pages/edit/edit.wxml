@@ -1,19 +1,31 @@
 <!--pages/edit/edit.wxml-->
 <form bindsubmit="onSubmit">
   <view class="form">
-    <textarea model:value="{{ content }}" class="content" placeholder="请输入标题" auto-height></textarea>
+    <input model:value="{{ title }}" class="title" type="text" placeholder="请输入标题" />
+    <lib-rule value="{{ !!title }}" class="lib-rule" tip="请输入标题"></lib-rule>
 
-    <input model:value="{{ tag }}" class="tag" type="text" placeholder="请输入标签" />
-    <lib-rule value="{{ !!tag }}" tip="请输入标签"></lib-rule>
+    <view class="head">添加内容</view>
+    <textarea model:value="{{ content }}" class="content" placeholder="在这里记录你的想法" auto-height></textarea>
 
-    <view class="images">
-      <lib-uploader value="{{ images }}" bindinput="uploader"></lib-uploader>
+    <view class="head">添加标签</view>
+    <input model:value="{{ tag }}" class="tag" type="text" placeholder="在这里添加标签" />
+    <view class="tags">
+      <view wx:for="{{ tags }}" wx:key="id" class="tag-item {{ item.name === tag ? 'active' : '' }}" bindtap="onTag" data-name="{{ item.name }}">{{ item.name }}</view>
     </view>
-    <lib-rule value="{{ !!images.length }}" tip="请上传图片"></lib-rule>
+    <lib-rule value="{{ !!tag }}" class="lib-rule" tip="请添加标签"></lib-rule>
+
+    <view class="head">添加图片</view>
+    <view class="images">
+      <lib-uploader value="{{ images }}" bindinput="onUploader"></lib-uploader>
+    </view>
+    <lib-rule value="{{ uploading }}" class="lib-rule" tip="请上传图片"></lib-rule>
 
     <view class="share">
-      <switch model:checked="{{ share }}"></switch>
-      <text>公开</text>
+      <view class="flex-auto">
+        <view class="label">公开可见</view>
+        <view class="desc">公开后所有人可见</view>
+      </view>
+      <switch model:checked="{{ share }}" color="var(--primary)"></switch>
     </view>
 
     <view class="flex-auto"></view>

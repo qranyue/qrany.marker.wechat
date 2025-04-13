@@ -1,2 +1,6 @@
 /**app.wxss**/
 @import "./iconfont/iconfont.wxss";
+
+page {
+  --primary: #3b82f6;
+}

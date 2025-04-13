@@ -10,7 +10,13 @@ Component({
   data: {
     visible: "hidden",
 
-    fn: () => {},
+    fn: void 0 as (() => void) | undefined,
+  },
+
+  observers: {
+    value() {
+      this.data.fn && this.verify();
+    },
   },
 
   methods: {
@@ -23,11 +29,12 @@ Component({
   },
 
   lifetimes: {
-    created() {
+    ready() {
       on("rule", (this.data.fn = () => this.verify()));
     },
     detached() {
-      off("rule", this.data.fn);
+      const fn = this.data.fn;
+      fn && off("rule", fn);
     },
   },
 });

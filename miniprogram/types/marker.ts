@@ -1,3 +1,4 @@
+/** 地图标记 */
 export type MapMarker = {
   /** 标记点 id */
   id: number;

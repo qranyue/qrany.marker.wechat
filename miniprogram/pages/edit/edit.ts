@@ -2,19 +2,30 @@
 
 import { edit } from "../../services/edit";
 import { MarkerResult } from "../../services/marker";
+import { Tag } from "../../types/tag";
 import { emit } from "../../utils/event";
 import { tryPromise } from "../../utils/try";
 
 Component({
   data: {
     id: void 0 as number | undefined,
+    title: "",
     content: "",
     tag: "",
     images: [] as string[],
-    share: false,
+    share: true,
 
+    tags: [] as Tag[],
+
+    uploading: false,
     loading: false,
     saved: void 0 as MarkerResult | undefined,
+  },
+
+  observers: {
+    images(images: string[]) {
+      this.setData({ uploading: images.some((_) => !!_) });
+    },
   },
 
   methods: {
@@ -27,15 +38,19 @@ Component({
       this.setData({ loading: false, saved: r });
     },
 
-    uploader(e: WechatMiniprogram.CustomEvent<string[]>) {
+    onUploader(e: WechatMiniprogram.CustomEvent<string[]>) {
       this.setData({ images: e.detail });
+    },
+
+    onTag(e: WechatMiniprogram.CustomEvent<{}, {}, { name: string }>) {
+      this.setData({ tag: e.currentTarget.dataset.name });
     },
   },
 
   lifetimes: {
     detached() {
       const e = this.getOpenerEventChannel();
-      e.emit(this.data.saved ? "resolve" : "reject", this.data.saved);
+      e.emit(this.data.saved ? "resolve" : "reject", this.data.saved || "返回");
     },
   },
 });
