@@ -1,8 +1,8 @@
 <!--index.wxml-->
-<map id="map" enable-rotate bindmarkertap="onMarkerTap"></map>
+<map id="map" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" bindmarkertap="onMarkerTap"></map>
 
-<view id="center" />
+<view id="center"></view>
 
 <view id="footer">
-  <lib-push loading="{{ add_loading }}" bind:tap="onTap" />
+  <lib-push loading="{{ add_loading }}" bind:tap="onTap"></lib-push>
 </view>

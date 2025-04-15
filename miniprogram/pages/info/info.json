@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "lib-back": "../../lib/back",
+    "lib-preview": "../../lib/preview"
+  }
 }

@@ -1,14 +1,17 @@
 // pages/edit/edit.ts
 
-import { edit } from "../../services/edit";
-import { MarkerResult } from "../../services/marker";
+import { edit, info, remove } from "../../services/marker";
+import { tags } from "../../services/tag";
+import { MapMarker } from "../../types/marker";
 import { Tag } from "../../types/tag";
 import { emit } from "../../utils/event";
-import { tryPromise } from "../../utils/try";
+import { getOption } from "../../utils/router";
 
-Component({
+Page({
   data: {
     id: void 0 as number | undefined,
+    latitude: void 0 as number | undefined,
+    longitude: void 0 as number | undefined,
     title: "",
     content: "",
     tag: "",
@@ -17,40 +20,67 @@ Component({
 
     tags: [] as Tag[],
 
+    spinning: false,
     uploading: false,
     loading: false,
-    saved: void 0 as MarkerResult | undefined,
+    removeing: false,
+    saved: void 0 as MapMarker | undefined,
   },
 
-  observers: {
-    images(images: string[]) {
-      this.setData({ uploading: images.some((_) => !!_) });
-    },
+  async onSubmit() {
+    this.setData({ loading: true });
+    if (emit<boolean[]>("rule").some((x) => !x)) return this.setData({ loading: false });
+    const [f, u] = [this.data, getOption()];
+    const r = await edit({ ...f, latitude: +(u.lat ?? f.latitude ?? 0), longitude: +(u.lng ?? f.longitude ?? 0) });
+    if (r) wx.navigateBack();
+    this.setData({ loading: false, saved: r });
   },
 
-  methods: {
-    async onSubmit() {
-      this.setData({ loading: true });
-      if (emit<boolean[]>("rule").some((x) => !x)) return this.setData({ loading: false });
-      const [f, u] = [this.data, getCurrentPages().slice(-1)[0].options];
-      const [r] = await tryPromise(edit({ ...f, latitude: +(u.lat ?? 0), longitude: +(u.lng || 0) }));
-      if (r) wx.navigateBack();
-      this.setData({ loading: false, saved: r });
-    },
-
-    onUploader(e: WechatMiniprogram.CustomEvent<string[]>) {
-      this.setData({ images: e.detail });
-    },
-
-    onTag(e: WechatMiniprogram.CustomEvent<{}, {}, { name: string }>) {
-      this.setData({ tag: e.currentTarget.dataset.name });
-    },
+  async onRemove() {
+    this.setData({ removeing: true });
+    await remove(getOption().id!);
+    this.setData({ removeing: false });
+    wx.navigateBack({ delta: getCurrentPages().length - 1 });
   },
 
-  lifetimes: {
-    detached() {
-      const e = this.getOpenerEventChannel();
-      e.emit(this.data.saved ? "resolve" : "reject", this.data.saved || "返回");
-    },
+  onUploader(e: WechatMiniprogram.CustomEvent<string[]>) {
+    this.setData({ images: e.detail, uploading: e.detail.some((_) => !!_) });
+  },
+
+  onTag(e: WechatMiniprogram.CustomEvent<{}, {}, { name: string }>) {
+    this.setData({ tag: e.currentTarget.dataset.name });
+  },
+
+  async getInfo(id = getOption().id!) {
+    if (!id) return;
+    this.setData({ spinning: true });
+    const i = await info(id);
+    if (!i) return this.setData({ spinning: false });
+    this.setData({
+      id: i.id,
+      tag: i.tag,
+      latitude: i.latitude,
+      longitude: i.longitude,
+      title: i.title,
+      content: i.content,
+      images: i.images,
+      share: i.share,
+      uploading: true,
+      spinning: false,
+    });
+  },
+
+  async getTags() {
+    const r = await tags();
+    if (r) this.setData({ tags: r });
+  },
+
+  onLoad() {
+    this.getInfo();
+    this.getTags();
+  },
+  onUnload() {
+    const e = this.getOpenerEventChannel();
+    e.emit(this.data.saved ? "resolve" : "reject", this.data.saved || "返回");
   },
 });

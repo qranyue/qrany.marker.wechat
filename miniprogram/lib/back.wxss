@@ -1,0 +1,19 @@
+/* lib/back.wxss */
+
+.back {
+  position: fixed;
+  left: 20rpx;
+  top: 20rpx;
+  margin-top: constant(safe-area-inset-bottom);
+  margin-top: env(safe-area-inset-bottom);
+
+  padding: 24rpx;
+}
+
+.icon-left {
+  line-height: 1;
+}
+
+.back:not([size="mini"]) {
+  width: auto;
+}

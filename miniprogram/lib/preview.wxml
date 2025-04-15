@@ -1,0 +1,5 @@
+<!--lib/preview.wxml-->
+
+<view class="preview">
+  <image wx:for="{{ values }}" wx:key="*this" class="image" src="{{ item }}" mode="aspectFill" lazy-load data-url="{{ item }}" bindtap="preview"></image>
+</view>

@@ -12,4 +12,7 @@ export type MapMarker = {
   title: string;
   /** 标记点是否在当前视野内 */
   joinCluster: true;
+
+  width?: number | string;
+  height?: number | string;
 };

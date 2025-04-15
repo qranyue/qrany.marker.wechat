@@ -1,2 +1,35 @@
 <!--pages/info/info.wxml-->
-<text>pages/info/info.wxml</text>
+
+<view wx:if="{{ loading }}"></view>
+
+<block wx:else>
+  <map class="map" longitude="{{ longitude }}" latitude="{{ latitude }}" markers="{{ [{id,longitude,latitude}] }}"></map>
+
+  <view class="info">
+    <view class="head"></view>
+
+    <scroll-view class="scroll" scroll-y="true">
+      <view class="wrapper">
+        <view class="title">{{ title }}</view>
+
+        <view class="line"></view>
+
+        <view class="sub-title">信息记录</view>
+        <view class="content">{{ content }}</view>
+
+        <view class="sub-title">内容相片</view>
+        <lib-preview values="{{ images }}"></lib-preview>
+      </view>
+    </scroll-view>
+
+    <view class="footer">
+      <button bindtap="open">去看看</button>
+    </view>
+  </view>
+
+  <button class="edit" type="primary" bindtap="edit">
+    <view class="iconfont icon-edit"></view>
+  </button>
+</block>
+
+<lib-back></lib-back>

@@ -5,3 +5,7 @@
   justify-content: center;
   gap: 12rpx;
 }
+
+.button:not([size="mini"]) {
+  margin: 0;
+}

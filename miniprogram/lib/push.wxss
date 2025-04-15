@@ -13,8 +13,6 @@
   align-items: center;
   justify-content: center;
   padding: 32rpx;
-  color: white;
-  background-color: var(--primary);
   box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15);
 }
 
@@ -25,5 +23,5 @@
 
 .icon-add {
   line-height: 1;
-  font-size: 50rpx;
+  font-size: 40rpx;
 }

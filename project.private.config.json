@@ -6,5 +6,17 @@
     "urlCheck": false,
     "autoAudits": false
   },
-  "condition": {}
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/info/info",
+          "pathName": "pages/info/info",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

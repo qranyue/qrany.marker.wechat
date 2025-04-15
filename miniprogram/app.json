@@ -3,7 +3,8 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "景点标记",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#ffffff",
+    "enableSafeArea": true
   },
   "style": "v2",
   "componentFramework": "glass-easel",

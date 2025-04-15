@@ -1,5 +1,5 @@
 <!--lib/button.wxml-->
-<button class="button" form-type="submit" disabled="{{ disabled || loading }}">
+<button class="button" type="{{ type }}" form-type="{{ form }}" disabled="{{ disabled || loading }}" bindtap="{{ onClick }}">
   <lib-spin wx:if="{{ loading }}" size="{{ 12 }}"></lib-spin>
-  <text>提交</text>
+  <text><slot></slot></text>
 </button>

@@ -1,0 +1,5 @@
+<!--lib/back.wxml-->
+
+<button class="back" bindtap="back">
+  <view class="iconfont icon-left"></view>
+</button>

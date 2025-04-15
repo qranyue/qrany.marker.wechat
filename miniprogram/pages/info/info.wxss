@@ -1,1 +1,88 @@
 /* pages/info/info.wxss */
+
+:host {
+  display: block;
+  position: relative;
+  padding-top: 70vh;
+  background-color: white;
+}
+
+.map {
+  display: block;
+  height: 70vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.info {
+  position: relative;
+  margin-top: -100rpx;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120rpx - constant(safe-area-inset-bottom));
+  min-height: calc(100vh - 120rpx - env(safe-area-inset-bottom));
+}
+
+.head {
+  margin: 32rpx auto;
+  width: 96rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+  background-color: #d1d5db;
+}
+
+.scroll {
+  flex: auto;
+}
+
+.wrapper {
+  padding: 32rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.sub-title {
+  margin: 16rpx 0;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.line {
+  margin: 32rpx 0;
+  border-top: 1rpx solid #efefef;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.footer {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.edit {
+  position: fixed;
+  right: 32rpx;
+  bottom: 10vh;
+  padding: 32rpx;
+  line-height: 1;
+  border-radius: 99990rpx;
+}
+
+.edit:not([size="mini"]) {
+  width: auto;
+}
+
+.icon-edit {
+  font-size: 40rpx;
+}

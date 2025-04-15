@@ -25,7 +25,7 @@ const relogin = async (fn: () => void) => {
   fn();
 };
 
-export const http = <T extends string | WechatMiniprogram.IAnyObject>(option: HttpOption) =>
+export const http = <T>(option: HttpOption) =>
   new Promise<T>((resolve, reject) => {
     const header = {} as WechatMiniprogram.IAnyObject;
     const token = get_storage<string>("TOKEN");

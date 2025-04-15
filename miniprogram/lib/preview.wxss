@@ -1,0 +1,16 @@
+/* lib/preview.wxss */
+:host {
+  --size: var(--preview-size, calc((100vw - 96rpx) / 3));
+}
+
+.preview {
+  display: flex;
+  gap: 16rpx;
+}
+
+.image {
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 8rpx;
+}

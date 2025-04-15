@@ -11,6 +11,7 @@
 .input {
   width: var(--size);
   height: var(--size);
+  border-radius: 4px;
 }
 
 .preview {

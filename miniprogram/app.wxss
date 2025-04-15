@@ -3,4 +3,5 @@
 
 page {
   --primary: #3b82f6;
+  font-size: 28rpx;
 }
