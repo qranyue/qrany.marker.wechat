@@ -2,7 +2,7 @@
 @import "./iconfont/iconfont.wxss";
 
 page {
-  --primary: #3b82f6;
+  --primary: #58be6a;
   font-size: 28rpx;
   line-height: 1.5;
 }
