@@ -1,12 +1,14 @@
 /* lib/back.wxss */
 
-.back {
+:host {
+  display: block;
   position: fixed;
   left: 20rpx;
-  top: 20rpx;
-  margin-top: constant(safe-area-inset-bottom);
-  margin-top: env(safe-area-inset-bottom);
+  top: calc(20rpx + constant(safe-area-inset-bottom));
+  top: calc(20rpx + env(safe-area-inset-bottom));
+}
 
+.back {
   padding: 24rpx;
 }
 

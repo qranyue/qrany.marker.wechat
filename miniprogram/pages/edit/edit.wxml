@@ -1,5 +1,22 @@
 <!--pages/edit/edit.wxml-->
-<view wx:if="{{ spinning }}"></view>
+<view wx:if="{{ spinning }}" style="display: flex; flex-direction: column; padding: 32rpx;">
+  <view style="margin-top: -32rpx;"></view>
+  <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin: 14rpx 0;"></view>
+  <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin-top: 30rpx; width: 112rpx;"></view>
+  <view style="padding: 16rpx 0; min-height: 176rpx;">
+    <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin: 7rpx 0;"></view>
+    <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin: 7rpx 0; width: 60vw;"></view>
+  </view>
+  <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin-top: 30rpx; width: 112rpx;"></view>
+  <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin: 14rpx 0;"></view>
+
+  <view class="skeleton" style="border-radius: 8rpx; height: 28rpx; margin-top: 30rpx; width: 112rpx;"></view>
+  <view style="display: flex; flex-wrap: wrap; gap: 16rpx; padding: 16rpx 0;">
+    <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+    <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+    <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+  </view>
+</view>
 
 <view wx:else class="form">
   <input model:value="{{ title }}" class="title" type="text" placeholder="请输入标题" />

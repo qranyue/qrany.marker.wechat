@@ -1,8 +1,25 @@
 <!--pages/info/info.wxml-->
 
-<view wx:if="{{ loading }}"></view>
+<view wx:if="{{ loading }}">
+  <view style="padding: 32rpx;">
+    <view class="skeleton" style="border-radius: 8rpx; height: 60vh;"></view>
+  </view>
+  <view style="padding: 32rpx;">
+    <view class="skeleton" style="margin-top: 92rpx 0 20rpx 0; border-radius: 8rpx; height: 40rpx; width: 50vw;"></view>
+    <view class="line"></view>
+    <view class="skeleton" style="margin: 25rpx 0; border-radius: 8rpx; height: 36rpx; width: 144rpx;"></view>
+    <view class="skeleton" style="margin: 23rpx 0; border-radius: 8rpx; height: 28rpx;"></view>
+    <view class="skeleton" style="margin: 23rpx 0; border-radius: 8rpx; height: 28rpx; width: 60vw;"></view>
+    <view class="skeleton" style="margin: 25rpx 0; border-radius: 8rpx; height: 36rpx; width: 144rpx;"></view>
+    <view style="display: flex; flex-wrap: wrap; gap: 16rpx;">
+      <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+      <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+      <view class="skeleton" style="flex: auto; border-radius: 8rpx; height: 218rpx;"></view>
+    </view>
+  </view>
+</view>
 
-<block wx:else>
+<view wx:else class="body">
   <map class="map" longitude="{{ longitude }}" latitude="{{ latitude }}" markers="{{ [{id,longitude,latitude}] }}"></map>
 
   <view class="info">
@@ -30,6 +47,6 @@
   <button class="edit" type="primary" bindtap="edit">
     <view class="iconfont icon-edit"></view>
   </button>
-</block>
+</view>
 
 <lib-back></lib-back>

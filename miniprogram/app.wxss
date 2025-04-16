@@ -4,4 +4,20 @@
 page {
   --primary: #3b82f6;
   font-size: 28rpx;
+  line-height: 1.5;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.skeleton {
+  background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.6) 63%);
+  background-size: 800% 100%;
+  animation: skeleton 1.5s ease infinite;
 }

@@ -20,7 +20,7 @@ Page({
 
     tags: [] as Tag[],
 
-    spinning: false,
+    spinning: true,
     uploading: false,
     loading: false,
     removeing: false,
@@ -51,8 +51,7 @@ Page({
     this.setData({ tag: e.currentTarget.dataset.name });
   },
 
-  async getInfo(id = getOption().id!) {
-    if (!id) return;
+  async getInfo(id: string) {
     this.setData({ spinning: true });
     const i = await info(id);
     if (!i) return this.setData({ spinning: false });
@@ -75,8 +74,9 @@ Page({
     if (r) this.setData({ tags: r });
   },
 
-  onLoad() {
-    this.getInfo();
+  onLoad(query) {
+    if (query.id) this.getInfo(query.id);
+    else this.setData({ spinning: false });
     this.getTags();
   },
   onUnload() {

@@ -1,7 +1,6 @@
 /* pages/info/info.wxss */
 
-:host {
-  display: block;
+.body {
   position: relative;
   padding-top: 70vh;
   background-color: white;
