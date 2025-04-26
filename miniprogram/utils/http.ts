@@ -14,8 +14,7 @@ type HttpOption = {
  */
 export type RS<T> = { data: T; success: true } | { success: false; message: string };
 
-// const base = "https://marker.qran.site/";
-const base = "https://localhost:7148/";
+const base = "https://marker.qran.site/v/";
 
 let notlogin = false;
 const relogin = async (fn: () => void) => {
