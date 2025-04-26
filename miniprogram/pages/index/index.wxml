@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<map id="map" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" bindmarkertap="onMarkerTap"></map>
+<map id="map" subkey="{{ MAP_KEY }}" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" bindmarkertap="onMarkerTap"></map>
 
 <view id="center"></view>
 

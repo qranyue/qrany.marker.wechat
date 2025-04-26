@@ -20,7 +20,7 @@
 </view>
 
 <view wx:else class="body">
-  <map class="map" longitude="{{ longitude }}" latitude="{{ latitude }}" markers="{{ [{id,longitude,latitude}] }}"></map>
+  <map class="map" subkey="{{ MAP_KEY }}" longitude="{{ longitude }}" latitude="{{ latitude }}" markers="{{ [{id,longitude,latitude}] }}"></map>
 
   <view class="info">
     <view class="head"></view>

@@ -1,5 +1,6 @@
 // index.ts
 
+import { MAP_KEY } from "../../const";
 import { getMarkers } from "../../services/marker";
 import { getToken } from "../../stores/user";
 import type { MapMarker } from "../../types/marker";
@@ -48,6 +49,8 @@ const getLocation = async () => {
 // 获取应用实例
 Page({
   data: {
+    MAP_KEY,
+
     latitude: void 0 as number | void,
     longitude: void 0 as number | void,
 

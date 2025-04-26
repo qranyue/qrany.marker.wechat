@@ -1,3 +1,4 @@
+import { MAP_KEY } from "../../const";
 import { info } from "../../services/marker";
 import { getToken } from "../../stores/user";
 import { getOption } from "../../utils/router";
@@ -5,6 +6,8 @@ import { getOption } from "../../utils/router";
 // pages/info/info.ts
 Page({
   data: {
+    MAP_KEY,
+
     /** 主键 */
     id: void 0 as number | void,
     /** 经度 */
