@@ -23,5 +23,5 @@
 
 .icon-add {
   line-height: 1;
-  font-size: 40rpx;
+  font-size: 60rpx;
 }

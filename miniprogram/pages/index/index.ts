@@ -42,7 +42,7 @@ const getLocation = async () => {
       )
     )
   )[0];
-  if (!l) return;
+  if (!l || !l.latitude || !l.longitude) return;
   return { latitude: l.latitude, longitude: l.longitude };
 };
 

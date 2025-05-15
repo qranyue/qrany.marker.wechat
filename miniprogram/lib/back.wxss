@@ -4,8 +4,7 @@
   display: block;
   position: fixed;
   left: 20rpx;
-  top: calc(20rpx + constant(safe-area-inset-bottom));
-  top: calc(20rpx + env(safe-area-inset-bottom));
+  top: var(60rpx + var(--status-bar-height, 100rpx));
 }
 
 .back {

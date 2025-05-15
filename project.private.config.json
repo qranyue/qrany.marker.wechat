@@ -12,7 +12,7 @@
         {
           "name": "pages/info/info",
           "pathName": "pages/info/info",
-          "query": "id=1",
+          "query": "id=0",
           "launchMode": "default",
           "scene": null
         }
